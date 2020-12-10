@@ -1,0 +1,129 @@
+<div style=" margin-top: 26px;  margin-left:260px;     
+" class="   container text-center  width: 1050px;">
+
+
+    <table class=" box  table " *ngFor="let item of cat; let i=index  ">
+        <thead>
+            <tr *ngIf="i==1">
+                <td colspan="3">
+
+                </td>
+                <td colspan="1">
+                    <div style="margin-bottom: 15px; position: absolute;" *ngIf="!item.isAdd; else elseAdd"></div>
+                    <button type="button" class="btn btn-success btn-lg btn-block  " (click)="Addc(item)"> ADD</button>
+                </td>
+                <ng-template #elseAdd>
+                    <div class=" box stack-top  card  bg-light mb-3 card  border-info  shadow-lg  rounded"
+                    style="  margin-top: 100px; margin-left: 300px; opacity: 95%; width: 500px; height: 200px;  ">
+                    <div class="card-header h4 bg-info text-white ">Add Categories</div>
+                        <div class="card-body">
+                            <input type="text" name="Categories" [(ngModel)]="Categories" class=" form-control"
+                                placeholder="Enter Categories" >
+                        </div>
+                        <div class="card-footer row">
+                            <button type="button" style="width: 150px; " (click)="item.isAdd = false"
+                                class=" buttonn btn btn-danger card-link btn btn-lg btn-primary col">Cancel</button>
+                            <button (click)='Add()' style=" width: 150px;" type="submit" class=" buttonn card-link btn btn-lg btn-primary col"
+                                >Confrim</button>
+
+                        </div>
+
+
+                    </div>
+                </ng-template>
+            </tr>
+        </thead>
+        <thead *ngIf="i==1" class="shadow-lg p-3 mb-5  roundedtvv" style="background-color:#17a2b8; color:#F5F5F5	">
+            <tr class="mt-0   ">
+                <th class="font-weight-normal" scope="col ">#</th>
+                <th class="font-weight-normal" scope="col ">Categories Types</th>
+                <th class="font-weight-normal" scope="col">Supply</th>
+                <th class="font-weight-normal" scope="col">Actions</th>
+
+            </tr>
+        </thead>
+        <tbody class="shadow-lg p-3 mb-5  roundedtvv" style="background-color: white;" *ngIf="i==1">
+
+            <tr class="mt-0" *ngFor="let item of cat | paginate: config ;  let ii=index ">
+                <th scope="row"> {{ config.itemsPerPage * (config.currentPage - 1) + ii+1 }}
+                </th>
+                <th class="align-middle font-weight-normal" scope="col">{{item.name}}</th>
+                <th class="align-middle">
+                    <button *ngIf="id[ii]==item.id" routerLink="/Supply/{{item.id}}" type="button"
+                        class="btn btn-info">View</button>
+                </th>
+
+                <th class="align-middle ">
+                    <button style="margin-right: 5px;" (click)="edit(item)" type="button"
+                        class="btn btn-primary  far fa-edit"> </button>
+                    <button type="button" (click)="deleteConfrim(item)" class="btn btn-danger far fa-trash-alt"></button>
+                    <div *ngIf="!item.isEdit; else elseBlock"></div>
+                    <div *ngIf="!item.isdelete; else elseBlcock"></div>
+
+                </th>
+                <ng-template #elseBlcock>
+              
+                    <div class=" box stack-top  card  bg-light mb-3 card  border-info  shadow-lg  rounded"
+                    style="  margin-top: 100px; margin-left: 300px; opacity: 95%; width: 500px; height: 300px;  ">
+                    <div class="card-header h4 bg-info text-white ">Delete</div>
+
+                    <div  class="card-body">
+
+                        <i  style="color:red" class="far  fa-times-circle fa-6x"></i>
+
+                        <h1 style="margin-top:20px ;" class="display-1"> Are you sure want to delete <u style="color: red;">{{item.name}}</u></h1>
+
+                    </div>
+
+                    <div class="card-footer row " >
+                        <button  type="button"  (click)="item.isdelete = false"
+                            class=" btn btn-danger card-link btn-lg btn-block   col">Cancel</button>
+                            <button type="button" (click)="delete(item.id)"
+                            class=" card-link btn btn-primary   col">Confrim</button>
+
+                    </div>
+                </div>
+                </ng-template>
+
+                <ng-template #elseBlock>
+                    <div class=" box stack-top  card  bg-light mb-3 card  border-info  shadow-lg  rounded"
+                    style="  margin-top: 100px; margin-left: 300px; opacity: 95%; width: 500px; height: 200px;  ">
+                    <div class="card-header h4 bg-info text-white ">Edit Categories</div>
+                        <div class="card-body">
+
+                            <input style="border-radius: 0%; border-color: silver;" type="text" name="Categories" [(ngModel)]="Categories" class="form-control"
+                                placeholder="{{item.name}}">
+
+                        </div>
+
+                        <div class="card-footer row">
+                            <button type="button" style="width: 150px;" (click)="item.isEdit = false"
+                                class="buttonn btn btn-danger card-link col  btn-lg btn-block">Cancel</button>
+                            <button style="width: 150px;" type="button" (click)="UpdateRecord(item.id)"
+                                class="buttonn card-link btn btn-primary col">Update</button>
+
+                        </div>
+                    </div>
+
+                </ng-template>
+
+
+            </tr>
+        </tbody>
+        <tbody class="shadow-lg p-3 mb-5  roundedtvv" style="background-color: white;">
+
+            <tr *ngIf="i==1">
+                <th style="width: 1000px;   " colspan="4">
+                    <div style="width: 1000px; "> </div>
+                    <pagination-controls class="text-center" (pageChange)="pageChanged($event)"></pagination-controls>
+
+                </th>
+
+            </tr>
+
+        </tbody>
+
+  
+    </table>
+
+</div>

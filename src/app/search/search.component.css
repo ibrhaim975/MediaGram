@@ -1,0 +1,12 @@
+
+
+        ::ng-deep .autocomplete-container {
+          box-shadow: none;
+          font-family: 'Almarai', sans-serif;
+          width: 350px;
+          border-color: wheat;
+          background-color: transparent;
+          text-align:end;
+
+        }
+      
