@@ -1,4 +1,16 @@
-footer{
-    background-color: #343a40;
-color: wheat;
+.fonttype{
+    font-family: 'Cairo', sans-serif;
+
 }
+.phone{
+color: white;
+}
+.btn-outline-light:hover {
+    color: #ffffff;
+    background-color: #1abc9c;
+    border-color:  #1abc9c;
+  }
+  .btn-outline-light:focus {
+    color: #ffffff !important;
+box-shadow: none !important;
+  }

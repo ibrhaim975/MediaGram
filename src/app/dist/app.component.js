@@ -10,9 +10,8 @@ exports.AppComponent = void 0;
 var core_1 = require("@angular/core");
 var rxjs_1 = require("rxjs");
 var AppComponent = /** @class */ (function () {
-    function AppComponent(db, auth) {
+    function AppComponent(db) {
         this.db = db;
-        this.auth = auth;
         this.logoutt = false;
         this.isUser = false;
     }
@@ -22,21 +21,9 @@ var AppComponent = /** @class */ (function () {
         numbers.subscribe(function (x) {
             _this.timer = x;
         });
-        this.auth.afathu.user.subscribe(function (userr) {
-            if (userr)
-                _this.isUser = true;
-            else
-                _this.isUser = false;
-        });
     };
     AppComponent.prototype.logOutConfrim = function (record) {
         record.isdelete = record;
-    };
-    AppComponent.prototype.logOut = function () {
-        this.auth.logout();
-        this.auth.isloggedin = false;
-        this.isUser = this.auth.isloggedin;
-        localStorage.removeItem('LoggedIn');
     };
     AppComponent = __decorate([
         core_1.Component({

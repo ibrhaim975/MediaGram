@@ -1,13 +1,12 @@
 export const environment = {
   production: true,
   firebase:{
-    apiKey: "AIzaSyDIw4nQTIsIaLXMuOnaPxhULHMHXe5vTlE",
-    authDomain: "reall-a9761.firebaseapp.com",
-    databaseURL: "https://reall-a9761.firebaseio.com",
-    projectId: "reall-a9761",
-    storageBucket: "reall-a9761.appspot.com",
-    messagingSenderId: "341253700307",
-    appId: "1:341253700307:web:cba4d74b17578ee9173226",
-    measurementId: "G-H7VXRWBF8H"
+    apiKey: "AIzaSyBV8V2CkR1fffy6vuI60sLnXLSSpdFb5lc",
+    authDomain: "mediagram-129c5.firebaseapp.com",
+    databaseURL: "https://mediagram-129c5-default-rtdb.firebaseio.com",
+    projectId: "mediagram-129c5",
+    storageBucket: "mediagram-129c5.appspot.com",
+    messagingSenderId: "34058267113",
+    appId: "1:34058267113:web:6f30bdfc2e54e6aacc0378"
 }
 };

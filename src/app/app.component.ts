@@ -2,7 +2,6 @@ import { Component ,OnInit} from '@angular/core';
 import { AngularFireDatabase } from "angularfire2/database"; 
 import { FormGroup, FormControl, FormArray, FormBuilder, FormsModule } from '@angular/forms'
 import { AngularFireAuthModule } from "@angular/fire/auth";
-import { AuthService } from "src/app/services/auth.service";
 import { timer } from 'rxjs';
 
 
@@ -17,22 +16,24 @@ export class AppComponent implements OnInit{
 
 item:any;
 logoutt : boolean = false
-  constructor(private db: AngularFireDatabase,private auth :AuthService) {
+  constructor(private db: AngularFireDatabase) {
 
   }
   isUser : boolean=false;
 
   ngOnInit(): void {
+
+
+ 
+ 
+    
     const numbers = timer(3000);
     numbers.subscribe(x => {
       this.timer = x
       
     
     } );
- this.auth.afathu.user.subscribe(userr=>{
-if(userr) this.isUser= true
-else this.isUser = false
-})
+
 
 
 
@@ -41,12 +42,6 @@ else this.isUser = false
     record.isdelete = record;
   
   }
-  logOut() {
-    this.auth.logout();
-    this.auth.isloggedin = false
-    this.isUser =this.auth.isloggedin
-    localStorage.removeItem('LoggedIn');
 
-  }
 
 }

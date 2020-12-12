@@ -1,22 +1,22 @@
-
-<mat-toolbar  style="height: 8%;  "  class=" color  shadow-lg pos">
-  <a   routerLink="/Main"  [ngStyle]="{'cursor': 'pointer'}" [ngClass]="{'textt':catter == true}" class="text ">العيادة القانونيـة
-    </a>
-    <app-search ></app-search>
-
-   
-    <app-signup  [ngClass]="{'aftercc': catter == true}" class="berforec" class="berforec"  *ngIf="isUser!=true else elseBlcock"
-    ></app-signup>
-      <ng-template  #elseBlcock >
-        <button style="font-size:20px; " class="btnn btn textlog" mat-button [matMenuTriggerFor]="menu"><i class="fas fa-user"></i>
-          {{ usernamen}} <i class="fas fa-caret-down"></i>
-        </button>
-        <mat-menu class="customize"  #menu="matMenu">
-          <button  style="font-family: 'Almarai', sans-serif;      
-          "  mat-menu-item>المفضلة</button>
-          <button  (click)=" logOut()" style="font-family: 'Almarai', sans-serif;" mat-menu-item>تسجيل الخروج</button>
-        </mat-menu>
-      </ng-template>
-      
-      </mat-toolbar>
-
+<header style="background-image: linear-gradient(to bottom, #2c3e50, #215b73, #007b8d, #009c9c, #1abc9c); height: 590px; margin-top: 100px; 
+-webkit-box-shadow: 1px 9px 5px -3px rgba(201,195,201,1);
+-moz-box-shadow: 1px 9px 5px -3px rgba(201,195,201,1);
+box-shadow: 1px 9px 5px -3px rgba(201,195,201,1);
+" class="masthead  text-white text-center ">
+   <div class="postino"  >
+    <div   class=" d-flex align-items-center flex-column">
+        <!-- Masthead Avatar Image-->
+        <img class="masthead-avatar mb-3 "  src="assets/img/video-editing-app.svg" alt="" />
+ 
+        <h1  style="letter-spacing: 7px" class="masthead-heading text-uppercase mb-0">Mediagram</h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+     
+        <p style="font-weight: 600;" class="masthead-subheading  mb-0 Decrepion">إنتاج و إخراج - تصميم - تسويق </p>
+    </div>
+</div>
+</header>

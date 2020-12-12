@@ -5,69 +5,54 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { Routes, RouterModule } from '@angular/router';
-import { ReactiveFormsModule ,FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material/material.module';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment.prod';
-import { AuthService as AuthGuard } from 'src/app/services/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination'
 import { HttpClientModule } from '@angular/common/http';
-import { SignupComponent } from './signup/signup.component';
-import { LoginComponent } from './login/login.component';
-import { HeaderComponent } from './header/header.component';
-import { HelpComponent } from './help/help.component';
-import { CategoriesComponent } from './categories/categories.component';
-import { MainscreenComponent } from './mainscreen/mainscreen.component';
-import { CaterComponent } from './cater/cater.component';
-import { SUBcatComponent } from './subcat/subcat.component';
-import { SubSUBCATComponent } from './sub-subcat/sub-subcat.component';
-import { SubjectComponent } from './subject/subject.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { FormControl } from '@angular/forms';
+import { NavComponent } from './nav/nav.component';
+import { HeaderComponent } from './header/header.component';
+import { ServiceComponent } from './service/service.component';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
-import { SearchComponent } from './search/search.component';
-import { LoaderComponent } from './loader/loader.component';
+import { ModalComponent } from './modal/modal.component';
 
 
-const routers:Routes =[
-  { path: '', redirectTo: 'Main', pathMatch: 'full' },
-  { path: 'Main', component: MainscreenComponent },
-  { path: 'Categories', component: CaterComponent },
-  { path: 'SUbCategories/:Id', component: SUBcatComponent },
-  { path: 'Subjects/:Id', component: SubSUBCATComponent },
-  { path: 'Subject/:Id', component: SubjectComponent },
 
-]
+  
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent,
-    LoginComponent,
+    NavComponent,
     HeaderComponent,
-    HelpComponent,
-    CategoriesComponent,
-    MainscreenComponent,
-    CaterComponent,
-    SUBcatComponent,
-    SubSUBCATComponent,
-    SubjectComponent,
+    ServiceComponent,
+    ContactComponent,
+    AboutComponent,
     FooterComponent,
-    SearchComponent,
-    LoaderComponent
+    ModalComponent
     
   ],
   imports: [
-    BrowserModule, FormsModule,ReactiveFormsModule,
+    BrowserModule, FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,MaterialModule,
-    RouterModule.forRoot(routers), AngularFireAuthModule
+    AngularFireDatabaseModule,MaterialModule
+    ,     ScrollToModule.forRoot()
+,
+    AngularFireAuthModule
     , AngularFireAuthModule, BrowserAnimationsModule ,NgxPaginationModule,HttpClientModule,    MarkdownModule.forRoot(),
-    AutocompleteLibModule,NgxSkeletonLoaderModule,MatAutocompleteModule
+    AutocompleteLibModule,NgxSkeletonLoaderModule,ReactiveFormsModule
 
   ],
 
